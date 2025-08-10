@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import CanvasBoard from "./CanvasBoard";
 import { getSocket } from "./socket";
+import LoaderIO from "./LoaderIO";
 
 function App() {
   const socket = getSocket();
@@ -63,13 +64,7 @@ function App() {
   }, [socket]);
 
   // Show loading state
-  if (isLoading) {
-    return (
-      <div className="app loading">
-        <div>Connecting to drawing board... 🎨</div>
-      </div>
-    );
-  }
+
 
   return (
    <div className="flex flex-col h-screen bg-gray-50">
@@ -99,10 +94,15 @@ function App() {
       </span>
     </div>
   </header>
-
-  <main className="flex-1 flex flex-col items-center justify-center p-4">
-    <CanvasBoard socket={socket} />
-  </main>
+{
+  isLoading ? (
+    <LoaderIO />
+  ) : (
+    <main className="flex-1 flex flex-col items-center justify-center p-4">
+      <CanvasBoard socket={socket} />
+    </main>
+  )
+}
 </div>
   );
 }
