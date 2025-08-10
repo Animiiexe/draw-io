@@ -10,7 +10,7 @@ export function getSocket() {
       socket.disconnect();
     }
     
-    socket = io("http://localhost:5000", {
+    socket = io("https://sporting-ninnette-animiiexe-60c889d8.koyeb.app/", {
       autoConnect: false,
       forceNew: true, // Force new connection
     });
