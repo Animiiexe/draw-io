@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   keywords: ["collaborative drawing", "online whiteboard", "real-time sketch"],
   authors: [{ name: "Animiiexe" }],
     icons: {
-    icon: "/favicon.ico", // 16x16 or 32x32 favicon
-    shortcut: "/favicon-32x32.png", // optional
-    apple: "/apple-touch-icon.png", // optional for iOS homescreen
+    icon: "/icon.ico", // 16x16 or 32x32 favicon
+    shortcut: "/icon.ico", // optional
+    apple: "/icon.ico", // optional for iOS homescreen
   },
 
 };
