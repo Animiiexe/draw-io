@@ -7,8 +7,6 @@ import {
   Wifi, 
   WifiOff, 
   Home, 
-  RotateCcw,
-  Trash2,
   Menu,
   X
 } from "lucide-react";
@@ -208,30 +206,6 @@ function Page() {
                   <Home className="w-4 h-4" />
                   <span>Home</span>
                 </Link>
-                <button className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium py-2">
-                  <Settings className="w-4 h-4" />
-                  <span>Settings</span>
-                </button>
-                
-                {/* Mobile Action Buttons */}
-                <div className="flex items-center space-x-4 pt-2">
-                  <button className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">
-                    <RotateCcw className="w-4 h-4" />
-                    <span>Undo</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors text-sm">
-                    <Trash2 className="w-4 h-4" />
-                    <span>Clear</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">
-                    <Share2 className="w-4 h-4" />
-                    <span>Share</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">
-                    <Download className="w-4 h-4" />
-                    <span>Save</span>
-                  </button>
-                </div>
               </div>
             </div>
           )}
