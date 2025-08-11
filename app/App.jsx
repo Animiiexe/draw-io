@@ -125,7 +125,7 @@ export default function App() {
               <Link href="#how-it-works" className="block py-2 hover:text-indigo-600 transition-colors font-medium">
                 How It Works
               </Link>
-              <Link href="#pricing" className="block py-2 hover:text-indigo-600 transition-colors font-medium">
+              <Link href="/price" className="block py-2 hover:text-indigo-600 transition-colors font-medium">
                 Pricing
               </Link>
               <Link
