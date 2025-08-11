@@ -9,10 +9,11 @@ export function getSocket() {
       socket.removeAllListeners();
       socket.disconnect();
     }
-    
+
     socket = io("https://sporting-ninnette-animiiexe-60c889d8.koyeb.app/", {
       autoConnect: false,
-      forceNew: true, // Force new connection
+      closeOnBeforeunload: false, // Disable auto-close on unload
+      forceNew: false, // Force new connection
     });
     socket.connect();
   }

@@ -4,10 +4,17 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
-}
+  title: "Draw.io - Real-Time Collaborative Whiteboard",
+  description: "Sketch and collaborate online in real-time with Draw.io.",
+  keywords: ["collaborative drawing", "online whiteboard", "real-time sketch"],
+  authors: [{ name: "Animiiexe" }],
+    icons: {
+    icon: "/favicon.ico", // 16x16 or 32x32 favicon
+    shortcut: "/favicon-32x32.png", // optional
+    apple: "/apple-touch-icon.png", // optional for iOS homescreen
+  },
+
+};
 
 export default function RootLayout({
   children,

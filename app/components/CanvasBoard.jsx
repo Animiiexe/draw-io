@@ -12,8 +12,6 @@ const CanvasBoard = ({ socket }) => {
   const [tool, setTool] = useState("brush") // brush, eraser
   const [isEraserMode, setIsEraserMode] = useState(false)
   const [isToolbarOpen, setIsToolbarOpen] = useState(false)
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragStartX, setDragStartX] = useState(0)
   const [toolbarPosition, setToolbarPosition] = useState(-256) // -w-64 in pixels
 
   // Predefined colors
@@ -22,6 +20,7 @@ const CanvasBoard = ({ socket }) => {
     "#FFFF00", "#FF00FF", "#00FFFF", "#FFA500", "#800080",
     "#FFC0CB", "#A52A2A", "#808080", "#90EE90", "#FFB6C1"
   ]
+  
 
   // Brush sizes
   const brushSizes = [2, 4, 8, 12, 20, 30]
@@ -213,39 +212,6 @@ const CanvasBoard = ({ socket }) => {
     setIsEraserMode(selectedTool === "eraser")
   }
 
-  // Toolbar drag handlers
-  const handleToolbarDragStart = (e) => {
-    setIsDragging(true)
-    setDragStartX(e.clientX || e.touches[0].clientX)
-  }
-
-  const handleToolbarDrag = (e) => {
-    if (!isDragging) return
-    e.preventDefault()
-    
-    const currentX = e.clientX || e.touches[0].clientX
-    const deltaX = currentX - dragStartX
-    const newPosition = Math.max(-256, Math.min(0, toolbarPosition + deltaX))
-    
-    setToolbarPosition(newPosition)
-    setDragStartX(currentX)
-  }
-
-  const handleToolbarDragEnd = () => {
-    if (!isDragging) return
-    setIsDragging(false)
-    
-    // Snap to open or closed based on position
-    const threshold = -128 // Half of toolbar width
-    if (toolbarPosition > threshold) {
-      setToolbarPosition(0)
-      setIsToolbarOpen(true)
-    } else {
-      setToolbarPosition(-256)
-      setIsToolbarOpen(false)
-    }
-  }
-
   const toggleToolbar = () => {
     if (isToolbarOpen) {
       setToolbarPosition(-256)
@@ -263,14 +229,11 @@ const CanvasBoard = ({ socket }) => {
         className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl border-r border-gray-200 z-50 transition-transform duration-300 ease-out"
         style={{ 
           transform: `translateX(${toolbarPosition}px)`,
-          transition: isDragging ? 'none' : 'transform 0.3s ease-out'
         }}
       >
         {/* Drag Handle */}
         <div 
-          className="absolute -right-12 top-1/2 transform -translate-y-1/2 w-12 h-20 bg-white rounded-r-xl shadow-lg border border-l-0 border-gray-200 flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
-          onMouseDown={handleToolbarDragStart}
-          onTouchStart={handleToolbarDragStart}
+          className="absolute -right-12 top-1/2 transform -translate-y-1/2 w-12 h-20 bg-white rounded-r-xl shadow-lg border border-l-0 border-gray-200 flex items-center justify-center cursor-pointer select-none"
           onClick={toggleToolbar}
         >
           <div className="flex flex-col gap-1">
@@ -398,17 +361,6 @@ const CanvasBoard = ({ socket }) => {
         </div>
       </div>
 
-      {/* Global mouse/touch handlers for dragging */}
-      {isDragging && (
-        <div 
-          className="fixed inset-0 z-40"
-          onMouseMove={handleToolbarDrag}
-          onMouseUp={handleToolbarDragEnd}
-          onTouchMove={handleToolbarDrag}
-          onTouchEnd={handleToolbarDragEnd}
-        />
-      )}
-
       {/* Canvas Area - now full width */}
       <div className="w-full h-full relative">
         <canvas
@@ -478,4 +430,4 @@ const CanvasBoard = ({ socket }) => {
   )
 }
 
-export default CanvasBoard
+export default CanvasBoard;
