@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { 
-  Palette, 
-  Users, 
-  Smartphone, 
-  Image as ImageIcon, 
-  Eraser, 
-  Shield, 
-  Menu, 
-  X, 
+import {
+  Palette,
+  Users,
+  Smartphone,
+  Image as ImageIcon,
+  Eraser,
+  Shield,
+  Menu,
+  X,
   Play,
   Star,
   ArrowRight,
@@ -71,21 +71,22 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-gray-100">
       {/* Header */}
-      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrollY > 50 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700' 
+      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrollY > 50
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700'
           : 'bg-transparent'
-      }`}>
+        }`}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl">
-              <Palette className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Draw.io
-            </h1>
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                <Palette className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Draw.io
+              </h1>
+            </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="#features" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
@@ -94,11 +95,11 @@ export default function App() {
             <Link href="#how-it-works" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
               How It Works
             </Link>
-            <Link href="#pricing" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+            <Link href="/price" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
               Pricing
             </Link>
-            <Link 
-              href="/draw" 
+            <Link
+              href="/draw"
               className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2.5 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Start Drawing
@@ -127,8 +128,8 @@ export default function App() {
               <Link href="#pricing" className="block py-2 hover:text-indigo-600 transition-colors font-medium">
                 Pricing
               </Link>
-              <Link 
-                href="/draw" 
+              <Link
+                href="/draw"
                 className="block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl text-center font-semibold"
               >
                 Start Drawing
@@ -146,7 +147,7 @@ export default function App() {
               <Star className="w-4 h-4 mr-2" />
               Trusted by 50,000+ creators worldwide
             </div>
-            
+
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
                 Create Together
@@ -156,14 +157,14 @@ export default function App() {
                 Draw Without Limits
               </span>
             </h2>
-            
+
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
               The most intuitive collaborative drawing platform. Create, sketch, and brainstorm with your team in real-time, from anywhere in the world.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Link 
-                href="/app" 
+              <Link
+                href="/Login"
                 className="group bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center"
               >
                 Get Started Free
@@ -207,7 +208,7 @@ export default function App() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating Elements */}
               <div className="absolute -top-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center space-x-3">
@@ -231,10 +232,10 @@ export default function App() {
               Professional-grade tools designed for seamless collaboration and unlimited creativity.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div 
+              <div
                 key={index}
                 className="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 transform hover:-translate-y-2"
               >
@@ -262,7 +263,7 @@ export default function App() {
               Get started in seconds with our intuitive three-step process.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
@@ -272,7 +273,7 @@ export default function App() {
                 color: "from-red-500 to-pink-500"
               },
               {
-                step: "2", 
+                step: "2",
                 title: "Choose Your Style",
                 description: "Select from our comprehensive toolkit of brushes, colors, and creative effects.",
                 color: "from-blue-500 to-cyan-500"
@@ -312,7 +313,7 @@ export default function App() {
                 Join thousands of creators who've made Draw.io their go-to creative platform.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-4">
@@ -334,7 +335,7 @@ export default function App() {
               See what our community has to say about their Draw.io experience.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
@@ -346,7 +347,7 @@ export default function App() {
               },
               {
                 quote: "Finally, a drawing app that works perfectly on all devices. My kids and I love creating together!",
-                name: "Sarah Chen", 
+                name: "Sarah Chen",
                 role: "Art Teacher",
                 company: "Creative Learning Academy",
                 avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face"
@@ -354,7 +355,7 @@ export default function App() {
               {
                 quote: "The intuitive interface and powerful tools make Draw.io perfect for both quick sketches and detailed artwork.",
                 name: "Marcus Thompson",
-                role: "Freelance Illustrator", 
+                role: "Freelance Illustrator",
                 company: "Independent Artist",
                 avatar: "https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop&crop=face"
               }
@@ -369,8 +370,8 @@ export default function App() {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center">
-                  <img 
-                    src={testimonial.avatar} 
+                  <img
+                    src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
@@ -404,8 +405,8 @@ export default function App() {
               Join over 50,000 creators who are already bringing their ideas to life with Draw.io.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link 
-                href="/app" 
+              <Link
+                href="/draw"
                 className="group bg-white text-indigo-600 px-10 py-5 rounded-xl text-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 flex items-center justify-center"
               >
                 Start Drawing Now
@@ -434,7 +435,7 @@ export default function App() {
                 The most intuitive collaborative drawing platform for creators worldwide.
               </p>
             </div>
-            
+
             <div>
               <h5 className="font-semibold text-white mb-4">Product</h5>
               <ul className="space-y-2">
@@ -444,7 +445,7 @@ export default function App() {
                 <li><Link href="/api" className="hover:text-indigo-400 transition-colors">API</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h5 className="font-semibold text-white mb-4">Support</h5>
               <ul className="space-y-2">
@@ -454,7 +455,7 @@ export default function App() {
                 <li><Link href="/status" className="hover:text-indigo-400 transition-colors">Status</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h5 className="font-semibold text-white mb-4">Legal</h5>
               <ul className="space-y-2">
@@ -464,7 +465,7 @@ export default function App() {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 pt-8 text-center">
             <p>&copy; 2025 Draw.io. All rights reserved. Made with ❤️ for creators everywhere.</p>
             <p className="text-sm text-gray-500 mt-2">Powered by Socket.IO for real-time collaboration</p>
