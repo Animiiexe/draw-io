@@ -10,7 +10,7 @@ export function getSocket() {
       socket.disconnect();
     }
 
-    socket = io("https://sporting-ninnette-animiiexe-60c889d8.koyeb.app/", {
+    socket = io(process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:3001', {
       autoConnect: false,
       closeOnBeforeunload: false, // Disable auto-close on unload
       forceNew: false, // Force new connection
